@@ -1,18 +1,17 @@
 <script setup lang="ts">
   import { ref } from "vue";
+  import PirateComp from './components/PirateComp.vue';
+
   const counter = ref(1);
   const formTitle = 'Demo lang to';
 </script>
 
 <template>
   <header>
-    <h1>Practice Pirate</h1>
+    <h1>Practice </h1>
   </header>
   <main>
     {{ formTitle }}
-    {{ counter }}
-    <input type="text" v-model="counter" />
-    <button @click="counter++">Increment</button>
-    <button @click="counter--">Decrement</button>
+    <pirate-comp/>    
   </main>
 </template>
