@@ -6,7 +6,10 @@
         <button @click="onRegister">Register</button>
     </div>
     <ul>
-        <li v-for="m in members" :key="m.name" >{{ m.name }} ({{ m.role }})</li>
+        <li v-for="m in members" :key="m.name" >
+            {{ m.name }} ({{ m.role }})
+            <button @click="onDelete(m.name)">delete</button>
+        </li>
     </ul>
 </template>
 <script setup lang="ts">
@@ -28,5 +31,11 @@
         members.value.push({...newMember.value});
         newMember.value.name = '';
         newMember.value.role = '';
+    }
+    function onDelete(name: string) {
+        const index = members.value.findIndex((m) => (m.name == name));
+        if (index >= 0) {
+            members.value.splice(index, 1);
+        }
     }
 </script>
